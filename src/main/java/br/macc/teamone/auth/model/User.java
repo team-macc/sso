@@ -5,10 +5,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
 @Document(collection = "users")
+@ToString
 public class User {
 	@Id
 	private String id;
