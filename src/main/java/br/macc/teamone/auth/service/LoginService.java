@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.macc.teamone.auth.model.Credentials;
-import br.macc.teamone.auth.model.ResponseLogin;
+import br.macc.teamone.auth.model.DefaultResponse;
 import br.macc.teamone.auth.model.User;
 import br.macc.teamone.auth.repository.UserRepository;
 
@@ -23,15 +23,15 @@ public class LoginService implements ILoginService {
 	}
 	
 	@Override
-	public ResponseLogin login(final Credentials credentials) {
+	public DefaultResponse login(final Credentials credentials) {
 		final Optional<User> user = userRepository.findByUsername(credentials.getUsername());
-		ResponseLogin res;
+		DefaultResponse res;
 		
 		if(user.isPresent() && user.get().getPassword().equals(credentials.getPassword())) {
 			final String toekn = tokenService.getToken(user.get());
-			res = new ResponseLogin(true, EMPTY_MESSAGE, toekn);
+			res = new DefaultResponse(true, EMPTY_MESSAGE, toekn);
 		} else {
-			res = new ResponseLogin(false, "Credencias incorretas");
+			res = new DefaultResponse(false, "Credencias incorretas");
 		}
 		
 		return res;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.macc.teamone.auth.model.Credentials;
-import br.macc.teamone.auth.model.ResponseLogin;
+import br.macc.teamone.auth.model.DefaultResponse;
 import br.macc.teamone.auth.service.LoginService;
 
 @RestController
@@ -20,7 +20,7 @@ public class LoginCtrl {
 	}
 
 	@PostMapping("login")
-	public ResponseEntity<ResponseLogin> login(@RequestBody final Credentials credentials) {
+	public ResponseEntity<DefaultResponse> login(@RequestBody final Credentials credentials) {
 		return ResponseEntity.ok(loginService.login(credentials));
 	}
 }

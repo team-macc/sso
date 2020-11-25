@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class ResponseLogin {
+public class DefaultResponse {
 	private Boolean success;
 	private String message;
 	private Object data;
 
-	public ResponseLogin(final Boolean success, final String message) {
+	public DefaultResponse(final Boolean success, final String message) {
 		this.success = success;
 		this.message = message;
 	}

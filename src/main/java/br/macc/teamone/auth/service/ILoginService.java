@@ -1,8 +1,8 @@
 package br.macc.teamone.auth.service;
 
 import br.macc.teamone.auth.model.Credentials;
-import br.macc.teamone.auth.model.ResponseLogin;
+import br.macc.teamone.auth.model.DefaultResponse;
 
 public interface ILoginService {
-	public ResponseLogin login(Credentials credentials);
+	public DefaultResponse login(Credentials credentials);
 }
