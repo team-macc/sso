@@ -23,7 +23,6 @@ public class SignUpService implements ISignUpService {
 	public void createNewUser(NewUser newUser) {
 		final String encPwd = passwordEncoder.encode(newUser.getPassword());
 		final User user = new User(newUser.getUsername(), encPwd, newUser.getEmail());
-		System.out.println(user.toString());
 		userRepository.save(user);
 	}
 
