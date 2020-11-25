@@ -55,6 +55,7 @@ public class SignUpService implements ISignUpService {
 				break;
 			}
 		}
+		
 		user.setRoles(roles);
 		userRepository.save(user);
 	}

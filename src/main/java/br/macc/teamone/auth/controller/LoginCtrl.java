@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.macc.teamone.auth.model.Credentials;
-import br.macc.teamone.auth.model.DefaultResponse;
+import br.macc.teamone.auth.model.JwtResponse;
 import br.macc.teamone.auth.service.LoginService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -24,7 +24,7 @@ public class LoginCtrl {
 	}
 
 	@PostMapping("login")
-	public ResponseEntity<DefaultResponse> login(@RequestBody final Credentials credentials) {
+	public ResponseEntity<JwtResponse> login(@RequestBody final Credentials credentials) {
 		return ResponseEntity.ok(loginService.login(credentials));
 	}
 }
