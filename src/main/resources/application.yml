@@ -1,0 +1,10 @@
+app:
+  jwtExpirationMs: 1000
+  jwtSecret: devSecret
+spring:
+  application:
+    name: sso
+  data:
+    mongodb:
+      host: sso-db-mongodb
+      database: sso

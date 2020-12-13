@@ -1,0 +1,38 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sso
+  labels:
+    app: sso
+spec:
+  selector:
+    app: sso
+  ports:
+    - port: 8080
+      name: http
+  type: NodePort
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sso
+spec:
+  selector:
+    matchLabels:
+      app: sso
+  replicas: 1
+  template:
+    metadata:
+      annotations: 
+        sidecar.istio.io/inject: "true"      
+      labels:
+        app: sso
+        version: v2
+    spec:
+      containers:
+      - name: sso
+        image: samuelpereiradesouza/sso:3
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
+---
