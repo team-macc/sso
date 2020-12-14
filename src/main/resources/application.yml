@@ -6,5 +6,6 @@ spring:
     name: sso
   data:
     mongodb:
-      host: sso-db-mongodb
+      host: sso-db-1-mongodb
       database: sso
+      password: G7oXcL3TVb
