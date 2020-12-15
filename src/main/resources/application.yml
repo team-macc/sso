@@ -1,11 +1,22 @@
-app:
-  jwtExpirationMs: 1000
-  jwtSecret: devSecret
 spring:
   application:
     name: sso
-  data:
-    mongodb:
-      host: sso-db-1-mongodb
-      database: sso
-      password: G7oXcL3TVb
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://sso-db-mysql/auth?allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1234qwer
+    
+security:
+  jwt:
+    token: 
+      secret-key: secretKet
+      expire-length: 360000  

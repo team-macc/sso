@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: sso
-        image: samuelpereiradesouza/sso:3
+        image: samuelpereiradesouza/sso:7
         ports:
         - containerPort: 8080
       restartPolicy: Always
