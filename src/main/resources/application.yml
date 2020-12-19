@@ -18,5 +18,5 @@ spring:
 security:
   jwt:
     token: 
-      secret-key: secretKet
+      secret-key: secretKey
       expire-length: 360000  

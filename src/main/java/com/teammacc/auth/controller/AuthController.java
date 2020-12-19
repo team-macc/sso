@@ -22,7 +22,8 @@ import com.teammacc.auth.vo.UserVO;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping(value = "/login", produces = { "application/json", "application/xml",
+		"application/x-yaml" }, consumes = { "application/json", "application/xml", "application/x-yaml" })
 public class AuthController {
 
 	private final AuthenticationManager authenticationManager;
@@ -36,38 +37,37 @@ public class AuthController {
 		this.jwtTokenProvider = jwtTokenProvider;
 		this.userRepository = userRepository;
 	}
-	
+
 	@RequestMapping("/testeSecurity")
 	public String teste() {
 		return "testado";
 	}
 
-	@PostMapping(produces = { "application/json", "application/xml", "application/x-yaml" }, consumes = {
-			"application/json", "application/xml", "application/x-yaml" })
+	@PostMapping()
 	public ResponseEntity<?> login(@RequestBody UserVO userVO) {
 		try {
 			var username = userVO.getUserName();
 			var password = userVO.getPassword();
-			
+
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-			
+
 			var user = userRepository.findByUserName(username);
-			
+
 			var token = "";
-			
-			if(user != null) {
+
+			if (user != null) {
 				token = jwtTokenProvider.createToken(username, user.getRoles());
 			} else {
 				throw new UsernameNotFoundException("User name not found");
 			}
-			
+
 			Map<Object, Object> model = new HashMap<>();
 			model.put("username", username);
-			model.put("token",token);
+			model.put("token", token);
 			return ok(model);
-			
-		}catch(AuthenticationException e) {
-			throw new BadCredentialsException("Ivalid username/password");
+
+		} catch (AuthenticationException e) {
+			throw new BadCredentialsException("Invalid username/password");
 		}
 	}
 }
