@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.teammacc.auth.jwt.JwtTokenProvider;
 import com.teammacc.auth.repository.UserRepository;
@@ -22,6 +23,7 @@ import com.teammacc.auth.vo.UserVO;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/login", produces = { "application/json", "application/xml",
 		"application/x-yaml" }, consumes = { "application/json", "application/xml", "application/x-yaml" })
 public class AuthController {
