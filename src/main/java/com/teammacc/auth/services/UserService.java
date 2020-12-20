@@ -12,7 +12,7 @@ import com.teammacc.auth.repository.UserRepository;
 public class UserService implements UserDetailsService{
 
 	private final UserRepository userRepository;
-	
+
 	@Autowired
 	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
@@ -28,5 +28,6 @@ public class UserService implements UserDetailsService{
 			throw new UsernameNotFoundException(" Username " + username + " not found");
 		}
 	}
+	
 
 }
