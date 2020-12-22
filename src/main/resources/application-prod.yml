@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: sso
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://146.148.98.19/auth?allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC
+    username: macc
+    password: 1234qwer
+
+security:
+  jwt:
+    token:
+      secret-key: secretKey
+      expire-length: 60000000000

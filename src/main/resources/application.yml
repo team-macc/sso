@@ -1,11 +1,31 @@
-app:
-  jwtExpirationMs: 1000
-  jwtSecret: devSecret
+server:
+  port: 8082
+  servlet:
+    context-path: /sso
+
 spring:
   application:
     name: sso
-  data:
-    mongodb:
-      host: sso-db-1-mongodb
-      database: sso
-      password: G7oXcL3TVb
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth?allowPublicKeyRetrieval=true&Mode=DISABLED&useSSL=false&serverTimezone=UTC
+    username: microservices
+    password: Microservices@123
+
+security:
+   jwt:
+    token:
+      secret-key: secretKet
+      expire-length: 60000000000
+
+springdoc:
+  api-docs:
+    path: /api-docs
