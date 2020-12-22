@@ -24,12 +24,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@JsonPropertyOrder({"username","password"})
+@JsonPropertyOrder({"userName","password"})
 public class UserVO extends RepresentationModel<UserVO> implements Serializable  {
 
 	private static final long serialVersionUID = -8387927312441830960L;
 
-	@JsonProperty("username")
+	@JsonProperty("userName")
 	private String userName;
 	
 	@JsonProperty("password")
