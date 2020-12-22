@@ -1,3 +1,8 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /sso
+
 spring:
   application:
     name: sso
@@ -11,14 +16,14 @@ spring:
   jmx:
     enabled: false
   datasource:
-    url: jdbc:mysql://146.148.98.19/auth?allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC
-    username: macc
-    password: 1234qwer
+    url: jdbc:mysql://localhost:3306/auth?allowPublicKeyRetrieval=true&Mode=DISABLED&useSSL=false&serverTimezone=UTC
+    username: microservices
+    password: Microservices@123
 
 security:
-  jwt:
+   jwt:
     token:
-      secret-key: secretKey
+      secret-key: secretKet
       expire-length: 60000000000
 
 springdoc:
