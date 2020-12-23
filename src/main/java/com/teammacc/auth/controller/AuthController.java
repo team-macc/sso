@@ -29,7 +29,7 @@ import com.teammacc.auth.vo.UserVO;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping(value = "/login", produces = { "application/json", "application/xml",
+@RequestMapping(value = "", produces = { "application/json", "application/xml",
 		"application/x-yaml" }, consumes = { "application/json", "application/xml", "application/x-yaml" })
 public class AuthController {
 
@@ -49,12 +49,12 @@ public class AuthController {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	@RequestMapping("/testeSecurity")
+	@RequestMapping("/login/testeSecurity")
 	public String teste() {
 		return "testado";
 	}
 
-	@PostMapping()
+	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody UserVO userVO) {
 		try {
 			var username = userVO.getUserName();

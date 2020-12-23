@@ -9,7 +9,7 @@ spec:
   - route:
     - destination:
         host: sso
-        subset: v1
+        subset: v2
 ---
 
 apiVersion: networking.istio.io/v1alpha3
@@ -18,8 +18,11 @@ metadata:
   name: sso
 spec:
   host: sso
+  trafficPolicy:
+    tls:
+      mode: DISABLE
   subsets:
-  - name: v1
+  - name: v2
     labels:
-      version: v1
+      version: v2
 ---
