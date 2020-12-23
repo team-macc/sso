@@ -51,13 +51,13 @@ public class User implements UserDetails, Serializable{
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "accountNonExpired")
+	@Column(name = "account_non_expired")
 	private Boolean accountNonExpired;
 	
-	@Column(name = "accountNonLocked")
+	@Column(name = "account_non_locked")
 	private Boolean accountNonLocked;
 	
-	@Column(name = "credentialsNonExpired")
+	@Column(name = "credentials_non_expired")
 	private Boolean credentialsNonExpired;
 
 	@Column(name = "enabled")
